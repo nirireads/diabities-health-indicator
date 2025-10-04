@@ -7,10 +7,10 @@ from config import LEARNING_RATE, EPOCHS, BATCH_SIZE
 class CustomDataset(Dataset):
     def __init__(self, features, labels):
         self.features = features
-        self.labels = labels
+        self.labels = labels.long()
 
     def __len__(self):
-        return self.features.shape[0]
+        return len(self.features)
 
     def __getitem__(self, index):
         return self.features[index], self.labels[index]
@@ -22,7 +22,7 @@ train_loader = DataLoader(train_dataset, batch_size=BATCH_SIZE, shuffle=True)
 test_loader = DataLoader(test_dataset, batch_size=BATCH_SIZE, shuffle=False)
 
 model = DiabetesModel(num_features=X_train_tensor.shape[1])
-criterion = torch.nn.MSELoss()
+criterion = torch.nn.CrossEntropyLoss()
 optimizer = torch.optim.Adam(model.parameters(), lr=LEARNING_RATE)
 
 for epoch in range(EPOCHS):
@@ -43,3 +43,5 @@ for epoch in range(EPOCHS):
 #save trained model
 torch.save(model.state_dict(), 'models/diabetes_model.pth')
 print("Model saved as diabetes_model.pth")
+
+
