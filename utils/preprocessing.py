@@ -40,5 +40,5 @@ y_train_tensor = torch.from_numpy(y_train).float()
 y_test_tensor  = torch.from_numpy(y_test).float()
 
 # Print shapes to verify
-print(f'X_train shape: {X_train_tensor.shape}, y_train shape: {y_train_tensor.shape}')
-print(f'X_test shape: {X_test_tensor.shape}, y_test shape: {y_test_tensor.shape}')
+# print(f'X_train shape: {X_train_tensor.shape}, y_train shape: {y_train_tensor.shape}')
+# print(f'X_test shape: {X_test_tensor.shape}, y_test shape: {y_test_tensor.shape}')

@@ -39,3 +39,7 @@ for epoch in range(EPOCHS):
     epoch_loss = running_loss / len(train_loader)
     print(f"Epoch {epoch+1}/{EPOCHS}, Loss: {epoch_loss:.4f}")
 
+
+#save trained model
+torch.save(model.state_dict(), 'models/diabetes_model.pth')
+print("Model saved as diabetes_model.pth")
